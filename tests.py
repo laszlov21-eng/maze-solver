@@ -53,6 +53,24 @@ class Tests(unittest.TestCase):
             c2.has_bottom_wall
         )
 
+    def test__reset_visited(self):
+        num_cols = 12
+        num_rows = 10
+        seed = 0
+        m1 = Maze(0, 0, num_rows, num_cols, 10, 10,None,seed)
+        m1._Maze__break_entrance_and_exit()
+        m1._Maze__break_walls_r(0,0)
+        m1._Maze__reset_visited()
+        c1 = m1._Maze__cells[0][0]
+        c2 = m1._Maze__cells[num_cols-1][num_rows-1]
+        self.assertFalse(
+            c1.visited
+        )
+        self.assertFalse(
+            c2.visited
+        )
+
+
 
 
 if __name__ == "__main__":
