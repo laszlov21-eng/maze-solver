@@ -6,6 +6,12 @@ from maze import Maze
 def main():
     win = Window(800, 600)
     maze = Maze(100,100,10,10,50,50,win)
+    print("maze created")
+    is_solvable = maze.solve()
+    if not is_solvable:
+        print("maze can not be solved!")
+    else:
+        print("maze solved!")    
     win.wait_for_close()
 
 main()
